@@ -1,52 +1,37 @@
-<!DOCTYPE html>
+<!DOCTYPE1 html>
 <html lang="pt-PT">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cartas Festivas ao Pai Natal - Dudu & Kristal</title>
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartas de Natal Mágicas - Dudu & Kristal</title>
   
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Google Fonts: Caveat (Escrita à mão), Mountains of Christmas, Montserrat -->
+  <!-- Fontes do Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Mountains+of+Christmas:wght@700&family=Montserrat:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            christmasRed: '#b91c1c',
-            christmasDarkRed: '#7f1d1d',
-            christmasGreen: '#15803d',
-            christmasDarkGreen: '#064e3b',
-            christmasGold: '#d97706',
-            parchment: '#fef3c7',
-            parchmentDark: '#fde68a',
-          },
-          fontFamily: {
-            handwriting: ['Caveat', 'cursive'],
-            christmas: ['"Mountains of Christmas"', 'cursive'],
-            festive: ['"Dancing Script"', 'cursive'],
-            sans: ['Montserrat', 'sans-serif'],
-          },
-          boxShadow: {
-            gold: '0 0 25px rgba(217, 119, 6, 0.4)',
-            glow: '0 0 20px rgba(255, 255, 255, 0.6)',
-          }
-        }
-      }
-    }
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cinzel:wght@700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Neve em background */
-    #snowCanvas {
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: radial-gradient(circle, #2a080c 0%, #110305 100%);
+      color: #333;
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+      position: relative;
+      padding-bottom: 50px;
+    }
+
+    /* Canvas para Efeito de Neve */
+    #snow-canvas {
       position: fixed;
       top: 0;
       left: 0;
@@ -56,419 +41,486 @@
       z-index: 10;
     }
 
-    /* Efeito de papel pergaminho vintage com textura */
-    .parchment-bg {
-      background: linear-gradient(135deg, #fef7e5 0%, #f7e4be 50%, #eed29d 100%);
-      box-shadow: inset 0 0 60px rgba(139, 69, 19, 0.25), 0 15px 35px rgba(0, 0, 0, 0.5);
-      position: relative;
+    /* Luzes de Natal no Topo */
+    .christmas-lights {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      position: fixed;
+      top: -10px;
+      z-index: 20;
+      pointer-events: none;
     }
 
-    /* Borda festiva com padrão vermelho e verde */
-    .festive-border {
-      border: 12px solid transparent;
-      border-image: repeating-linear-gradient(45deg, #b91c1c, #b91c1c 15px, #ffffff 15px, #ffffff 25px, #15803d 25px, #15803d 40px, #ffffff 40px, #ffffff 50px) 20;
-    }
-
-    /* Efeito de carimbo vintage */
-    .north-pole-stamp {
-      border: 3px dashed #b91c1c;
-      border-radius: 50%;
-      color: #b91c1c;
-      transform: rotate(-12deg);
-      text-transform: uppercase;
-    }
-
-    /* Luzes a piscar no topo */
-    .lightbulb {
+    .light {
       width: 12px;
-      height: 12px;
+      height: 20px;
       border-radius: 50%;
-      display: inline-block;
       animation: flash 1.5s infinite alternate;
     }
 
+    .light:nth-child(4n+1) { background: #ff4d4d; box-shadow: 0 0 10px #ff4d4d; animation-delay: 0s; }
+    .light:nth-child(4n+2) { background: #2ecc71; box-shadow: 0 0 10px #2ecc71; animation-delay: 0.4s; }
+    .light:nth-child(4n+3) { background: #f1c40f; box-shadow: 0 0 10px #f1c40f; animation-delay: 0.8s; }
+    .light:nth-child(4n+4) { background: #3498db; box-shadow: 0 0 10px #3498db; animation-delay: 1.2s; }
+
     @keyframes flash {
-      0% { opacity: 0.3; transform: scale(0.9); }
-      100% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 10px currentColor; }
+      0% { opacity: 0.3; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1.1); }
     }
 
-    .light-red { background-color: #ef4444; color: #ef4444; animation-delay: 0s; }
-    .light-yellow { background-color: #f59e0b; color: #f59e0b; animation-delay: 0.3s; }
-    .light-green { background-color: #22c55e; color: #22c55e; animation-delay: 0.6s; }
-    .light-blue { background-color: #3b82f6; color: #3b82f6; animation-delay: 0.9s; }
+    /* Cabeçalho */
+    header {
+      margin-top: 30px;
+      text-align: center;
+      z-index: 5;
+      color: #f7d794;
+    }
 
-    /* Estilo do Flip Card */
-    .perspective {
+    header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.2rem;
+      text-shadow: 0 0 10px rgba(247, 215, 148, 0.5);
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 1rem;
+      color: #e0e0e0;
+    }
+
+    /* Seletor de Cartas (Tabs) */
+    .tab-container {
+      display: flex;
+      gap: 15px;
+      margin: 25px 0 15px 0;
+      z-index: 5;
+    }
+
+    .tab-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid #d4af37;
+      color: #f7d794;
+      padding: 10px 22px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: #d4af37;
+      color: #1a0406;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+    }
+
+    /* Contentor do Cartão com Animação Flip */
+    .perspective-wrapper {
       perspective: 1200px;
+      width: 90%;
+      max-width: 650px;
+      min-height: 820px;
+      z-index: 5;
     }
-    .transform-style-3d {
+
+    .flipper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       transform-style: preserve-3d;
-      transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
     }
-    .backface-hidden {
-      backface-visibility: hidden;
-    }
-    .rotate-y-180 {
+
+    .flipper.flipped {
       transform: rotateY(180deg);
     }
 
-    /* Bilhetes estilizados */
-    .ticket-stub {
-      background-image: radial-gradient(circle at 0 50%, transparent 12px, #ffffff 13px);
+    .letter-card {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      backface-visibility: hidden;
+      background: #fbf5e8;
+      background-image: radial-gradient(#e2d5bd 1px, transparent 0);
+      background-size: 20px 20px;
+      border-radius: 12px;
+      padding: 35px 30px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.6), inset 0 0 40px rgba(184, 134, 11, 0.15);
+      border: 12px solid #b32428;
+      border-image: repeating-linear-gradient(45deg, #b32428, #b32428 15px, #ffffff 15px, #ffffff 30px, #1c7339 30px, #1c7339 45px, #ffffff 45px, #ffffff 60px) 12;
     }
 
-    /* Animação de brilho suave */
-    @keyframes pulseGlow {
-      0%, 100% { filter: drop-shadow(0 0 5px rgba(245, 158, 11, 0.6)); }
-      50% { filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.9)); }
+    .letter-card.back {
+      transform: rotateY(180deg);
     }
-    .sparkle-animation {
-      animation: pulseGlow 2.5s infinite;
+
+    /* Carimbo do Pólo Norte */
+    .stamp-container {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transform: rotate(5deg);
+    }
+
+    .postmark {
+      width: 75px;
+      height: 75px;
+      border: 2px dashed #a82323;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #a82323;
+      font-size: 0.65rem;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+      padding: 5px;
+    }
+
+    .stamp-img {
+      width: 50px;
+      height: 60px;
+      background: #b32428;
+      border: 2px solid #fff;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* Conteúdo da Carta */
+    .letter-title {
+      font-family: 'Caveat', cursive;
+      font-size: 2.8rem;
+      color: #b32428;
+      margin-bottom: 20px;
+      margin-top: 10px;
+    }
+
+    .letter-body {
+      font-family: 'Caveat', cursive;
+      font-size: 1.55rem;
+      line-height: 1.5;
+      color: #2c2c2c;
+    }
+
+    .letter-body p {
+      margin-bottom: 16px;
+    }
+
+    .letter-signature {
+      margin-top: 25px;
+      font-family: 'Caveat', cursive;
+      font-size: 2rem;
+      color: #1c7339;
+      font-weight: bold;
+    }
+
+    /* Cartões de Bilhetes */
+    .tickets-container {
+      margin-top: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .ticket {
+      background: #fff;
+      border: 2px dashed #d4af37;
+      border-radius: 8px;
+      padding: 12px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .ticket:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+
+    .ticket-flixbus { border-left: 6px solid #73d700; }
+    .ticket-candle { border-left: 6px solid #d4af37; }
+
+    .ticket-info h4 {
+      font-size: 0.95rem;
+      color: #111;
+    }
+
+    .ticket-info p {
+      font-size: 0.8rem;
+      color: #666;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .ticket-badge {
+      background: #111;
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .ticket-candle .ticket-badge {
+      background: #d4af37;
+      color: #000;
+    }
+
+    /* Modal para Bilhetes */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: #fff;
+      border-radius: 12px;
+      padding: 25px;
+      max-width: 450px;
+      width: 100%;
+      position: relative;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #888;
+    }
+
+    /* Rodapé & Áudio */
+    .audio-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #d4af37;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   </style>
 </head>
+<body>
 
-<body class="bg-slate-950 text-slate-100 font-sans min-h-screen relative overflow-x-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-christmasDarkRed via-slate-950 to-christmasDarkGreen">
+  <canvas id="snow-canvas"></canvas>
 
-  <!-- Canvas para neve -->
-  <canvas id="snowCanvas"></canvas>
-
-  <!-- Luzes de Natal Decorativas no Topo -->
-  <div class="w-full flex justify-around py-2 bg-black/40 backdrop-blur-sm border-b border-white/10 sticky top-0 z-40">
-    <div class="lightbulb light-red"></div>
-    <div class="lightbulb light-yellow"></div>
-    <div class="lightbulb light-green"></div>
-    <div class="lightbulb light-blue"></div>
-    <div class="lightbulb light-red"></div>
-    <div class="lightbulb light-yellow"></div>
-    <div class="lightbulb light-green"></div>
-    <div class="lightbulb light-blue"></div>
-    <div class="lightbulb light-red hidden md:block"></div>
-    <div class="lightbulb light-yellow hidden md:block"></div>
-    <div class="lightbulb light-green hidden md:block"></div>
-    <div class="lightbulb light-blue hidden md:block"></div>
+  <div class="christmas-lights">
+    <div class="light"></div><div class="light"></div><div class="light"></div>
+    <div class="light"></div><div class="light"></div><div class="light"></div>
+    <div class="light"></div><div class="light"></div><div class="light"></div>
+    <div class="light"></div><div class="light"></div><div class="light"></div>
   </div>
 
-  <div class="max-w-5xl mx-auto px-4 py-8 relative z-20">
+  <header>
+    <h1>🎅 Cartas de Natal Mágicas 🕯️</h1>
+    <p>O desejo do Dudu & O apoio especial da Kristal</p>
+  </header>
 
-    <!-- Cabeçalho Mágico -->
-    <header class="text-center mb-8">
-      <div class="inline-flex items-center space-x-2 bg-christmasRed/30 px-4 py-1.5 rounded-full border border-christmasGold/40 mb-3 text-amber-300 text-sm font-semibold">
-        <i class="fa-solid font-star text-amber-400"></i>
-        <span>Pólo Norte - Correspondência Especial de Natal</span>
-        <i class="fa-solid font-star text-amber-400"></i>
-      </div>
-      <h1 class="text-4xl md:text-6xl font-christmas text-amber-300 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] mb-2">
-        Cartas ao Pai Natal
-      </h1>
-      <p class="text-amber-100/80 font-sans max-w-xl mx-auto text-sm md:text-base">
-        A história mágica do Dudu e o apoio especial da cantora Kristal para uma viagem inesquecível a Valongo!
-      </p>
-
-      <!-- Botão de Música de Natal -->
-      <div class="mt-4 flex justify-center items-center gap-3">
-        <button id="musicBtn" onclick="toggleAudio()" class="px-4 py-2 bg-christmasGreen hover:bg-emerald-600 text-white font-medium rounded-full shadow-lg transition-all transform hover:scale-105 flex items-center gap-2 border border-emerald-400/30 text-xs md:text-sm">
-          <i id="musicIcon" class="fa-solid fa-music"></i>
-          <span id="musicText">Tocar Música Natalícia</span>
-        </button>
-      </div>
-    </header>
-
-    <!-- Navegador / Tabs de Seleção de Carta -->
-    <div class="flex justify-center mb-8">
-      <div class="bg-slate-900/80 p-1.5 rounded-2xl border border-amber-500/30 shadow-2xl flex gap-2 backdrop-blur-md">
-        <button id="tabDudu" onclick="switchLetter('dudu')" class="px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all flex items-center gap-2 bg-amber-500 text-slate-950 shadow-md">
-          <i class="fa-solid fa-child"></i>
-          <span>1. Carta do Dudu</span>
-        </button>
-        <button id="tabKristal" onclick="switchLetter('kristal')" class="px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all flex items-center gap-2 text-amber-200 hover:text-white hover:bg-white/10">
-          <i class="fa-solid fa-star"></i>
-          <span>2. Apoio da Kristal</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Contentor Principal da Carta Flip -->
-    <div class="perspective max-w-3xl mx-auto mb-12">
-      <div id="cardInner" class="transform-style-3d relative w-full min-h-[680px]">
-
-        <!-- LADO A: CARTA DO DUDU -->
-        <div id="letterDuduCard" class="backface-hidden w-full absolute top-0 left-0">
-          <div class="parchment-bg rounded-2xl p-6 md:p-10 text-slate-900 shadow-2xl border-4 border-amber-700/30 festive-border">
-            
-            <!-- Carimbo do Pólo Norte & Selo -->
-            <div class="flex justify-between items-start mb-6 border-b border-amber-800/20 pb-4">
-              <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-full bg-red-700 text-amber-100 flex items-center justify-center font-bold text-xl shadow-md border-2 border-amber-300">
-                  🎅
-                </div>
-                <div>
-                  <span class="block font-bold text-red-800 text-xs tracking-wider uppercase">De: Dudu</span>
-                  <span class="text-xs text-amber-900 font-medium">Para: Pai Natal, Pólo Norte</span>
-                </div>
-              </div>
-
-              <!-- Carimbo Correio -->
-              <div class="north-pole-stamp p-2 text-center text-xs font-black leading-tight">
-                <span>PÓLO NORTE</span><br/>
-                <i class="fa-solid fa-snowflake text-xs my-0.5"></i><br/>
-                <span>CORREIO OFICIAL</span>
-              </div>
-            </div>
-
-            <!-- Título da Carta -->
-            <h2 class="font-handwriting text-4xl md:text-5xl text-red-700 font-bold mb-4 drop-shadow-sm flex items-center gap-2">
-              Querido Pai Natal, 🎅✨
-            </h2>
-
-            <!-- Conteúdo do Dudu -->
-            <div class="font-handwriting text-2xl md:text-3xl text-slate-800 leading-relaxed space-y-4">
-              <p>
-                Espero que estejas bem e que os duendes estejam a trabalhar com muita alegria lá no Pólo Norte! 🧑‍🎄❄️
-              </p>
-              <p>
-                Este ano porte me muito bem, ajudei em casa, brinquei muito e fui um bom menino. Por isso, tenho um pedido muito especial para este Natal. 🎁⭐
-              </p>
-              <p class="bg-amber-200/50 p-3 rounded-lg border-l-4 border-red-600 font-semibold">
-                O meu maior sonho é ir ver a Kristal ao vivo! Gostava muito, muito que me trouxesses um bilhete de Flixbus para Valongo e o bilhete para o espetáculo da Kristal, para eu poder viajar e ir cantar e dançar com ela. Seria o melhor presente do mundo inteiro! 🚌🎤🎶🌟
-              </p>
-              <p>
-                Prometo deixar uns biscoitos e um copo de leite ao pé da árvore de Natal para ti, e uma cenoura para as renas! 🥛🍪🥕
-              </p>
-              <p class="pt-2">
-                Um grande abraço e Feliz Natal! 🎄❤️
-              </p>
-            </div>
-
-            <!-- Assinatura Dudu -->
-            <div class="mt-8 pt-4 border-t border-amber-800/20 flex justify-between items-end">
-              <div>
-                <p class="font-handwriting text-2xl text-amber-900">Com carinho,</p>
-                <p class="font-handwriting text-4xl md:text-5xl text-red-700 font-bold tracking-wide">Dudu ❤️✨</p>
-              </div>
-              <div class="text-right text-3xl">
-                🥛 🍪 🥕 🦌
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- LADO B: CARTA DA KRISTAL -->
-        <div id="letterKristalCard" class="backface-hidden rotate-y-180 w-full absolute top-0 left-0">
-          <div class="parchment-bg rounded-2xl p-6 md:p-10 text-slate-900 shadow-2xl border-4 border-amber-700/30 festive-border">
-            
-            <!-- Carimbo & Foto da Kristal -->
-            <div class="flex justify-between items-start mb-6 border-b border-amber-800/20 pb-4">
-              <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-full bg-amber-500 text-slate-900 flex items-center justify-center font-bold text-xl shadow-md border-2 border-amber-300">
-                  ⭐
-                </div>
-                <div>
-                  <span class="block font-bold text-red-800 text-xs tracking-wider uppercase">De: Kristal (Artista)</span>
-                  <span class="text-xs text-amber-900 font-medium">Carta de Apoio ao Dudu</span>
-                </div>
-              </div>
-
-              <!-- Distintivo VIP da Kristal -->
-              <div class="bg-red-700 text-amber-200 px-3 py-1 rounded-full text-xs font-bold shadow transform rotate-3 flex items-center gap-1">
-                <i class="fa-solid fa-heart"></i>
-                <span>Super Fã Dudu</span>
-              </div>
-            </div>
-
-            <!-- Título -->
-            <h2 class="font-handwriting text-4xl md:text-5xl text-red-700 font-bold mb-4 drop-shadow-sm flex items-center gap-2">
-              Querido Pai Natal, 🎅💖
-            </h2>
-            <p class="text-xs text-red-800 font-bold uppercase tracking-widest mb-4">- Carta de Recomendação Especial da Kristal -</p>
-
-            <!-- Conteúdo da Kristal -->
-            <div class="font-handwriting text-2xl md:text-3xl text-slate-800 leading-relaxed space-y-4">
-              <p>
-                Espero que estejas bem e que os duendes estejam a trabalhar com muita alegria lá no Pólo Norte! ✨
-              </p>
-              <p>
-                Este ano tenho um pedido muito especial. O <strong class="text-red-700 font-bold">Dudu</strong> (o meu fã mais especial e querido) sonha tanto em vir ver-me ao vivo no meu espetáculo. Ele tem sido um menino fantástico: ajudou em casa, brincou muito e tem um coração enorme. ❤️
-              </p>
-              <p class="bg-amber-200/50 p-3 rounded-lg border-l-4 border-amber-600 font-semibold">
-                Por isso, peço-te de todo o coração que lhe tragas um bilhete de Flixbus para Valongo e o bilhete para o meu espetáculo Kristal ao vivo, para ele poder viajar, cantar e dançar comigo. Seria o melhor presente do mundo inteiro para os dois! 🚌🎤🎶⭐
-              </p>
-              <p>
-                Prometo deixar-te uns biscoitos e um copo de leite ao pé da árvore, e uma cenoura para as renas! 🥛🍪🥕
-              </p>
-              <p class="pt-2">
-                Um grande abraço e Feliz Natal,
-              </p>
-            </div>
-
-            <!-- Assinatura Kristal -->
-            <div class="mt-8 pt-4 border-t border-amber-800/20 flex justify-between items-end">
-              <div>
-                <p class="font-handwriting text-2xl text-amber-900">Com muito carinho,</p>
-                <p class="font-handwriting text-4xl md:text-5xl text-red-700 font-bold tracking-wide">Kristal ❤️</p>
-              </div>
-              <div class="text-right">
-                <span class="inline-block bg-amber-300 text-amber-950 font-bold text-xs px-3 py-1 rounded-md shadow border border-amber-500">
-                  <i class="fa-solid fa-ticket mr-1"></i> Pedido Concedido
-                </span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Secção Especial Interativa: Bilhetes Mágicos da Viagem -->
-    <section class="mt-16 bg-slate-900/90 rounded-3xl p-6 md:p-8 border border-amber-500/40 shadow-gold backdrop-blur-md">
-      <div class="text-center mb-8">
-        <span class="bg-amber-500/20 text-amber-300 text-xs font-bold px-3 py-1 rounded-full border border-amber-500/30 uppercase tracking-widest">
-          🎁 Surpresa Mágica de Natal
-        </span>
-        <h3 class="text-3xl md:text-4xl font-christmas text-amber-300 mt-2">
-          Os Bilhetes do Dudu para Valongo!
-        </h3>
-        <p class="text-slate-300 text-sm max-w-lg mx-auto">
-          Clica nos bilhetes para ver os detalhes da viagem mágica e da entrada VIP no concerto da Kristal!
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-        <!-- BILHETE 1: FLIXBUS VALONGO -->
-        <div onclick="openModal('flixbus')" class="cursor-pointer group bg-gradient-to-br from-emerald-800 to-teal-950 p-5 rounded-2xl border-2 border-emerald-400/40 shadow-xl transition-all duration-300 hover:scale-102 hover:border-emerald-300 hover:shadow-2xl relative overflow-hidden">
-          <div class="absolute -right-6 -top-6 w-24 h-24 bg-emerald-400/10 rounded-full blur-xl group-hover:bg-emerald-400/20"></div>
-          
-          <div class="flex justify-between items-start border-b border-emerald-500/30 pb-3 mb-3">
-            <div class="flex items-center gap-2">
-              <span class="bg-lime-500 text-slate-950 font-black px-2.5 py-0.5 rounded text-xs tracking-wider">FLIXBUS</span>
-              <span class="text-emerald-200 text-xs font-semibold">Viagem Direta</span>
-            </div>
-            <i class="fa-solid fa-bus text-lime-400 text-xl group-hover:bounce"></i>
-          </div>
-
-          <div class="space-y-2 text-sm">
-            <div class="flex justify-between">
-              <span class="text-emerald-300/70">Passageiro:</span>
-              <span class="font-bold text-white">Dudu</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-emerald-300/70">Destino:</span>
-              <span class="font-bold text-lime-300">Valongo (Espetáculo)</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-emerald-300/70">Tipo de Bilhete:</span>
-              <span class="text-xs bg-emerald-950 text-emerald-200 px-2 py-0.5 rounded border border-emerald-700">Ida / Especial Natal</span>
-            </div>
-          </div>
-
-          <div class="mt-4 pt-3 border-t border-dashed border-emerald-500/40 flex justify-between items-center text-xs">
-            <span class="text-emerald-400 font-mono">CODE: SANTA-FLIX-2026</span>
-            <span class="text-amber-300 font-semibold group-hover:underline flex items-center gap-1">
-              Ver Bilhete Completo <i class="fa-solid fa-arrow-right"></i>
-            </span>
-          </div>
-        </div>
-
-        <!-- BILHETE 2: KRISTAL AO VIVO VIP -->
-        <div onclick="openModal('kristal')" class="cursor-pointer group bg-gradient-to-br from-red-900 to-amber-950 p-5 rounded-2xl border-2 border-amber-500/40 shadow-xl transition-all duration-300 hover:scale-102 hover:border-amber-400 hover:shadow-2xl relative overflow-hidden">
-          <div class="absolute -right-6 -top-6 w-24 h-24 bg-amber-400/10 rounded-full blur-xl group-hover:bg-amber-400/20"></div>
-
-          <div class="flex justify-between items-start border-b border-amber-500/30 pb-3 mb-3">
-            <div class="flex items-center gap-2">
-              <span class="bg-amber-500 text-slate-950 font-black px-2.5 py-0.5 rounded text-xs tracking-wider">KRISTAL VIP</span>
-              <span class="text-amber-200 text-xs font-semibold">Acesso Especial</span>
-            </div>
-            <i class="fa-solid fa-ticket text-amber-400 text-xl"></i>
-          </div>
-
-          <div class="space-y-2 text-sm">
-            <div class="flex justify-between">
-              <span class="text-amber-200/70">Convidado VIP:</span>
-              <span class="font-bold text-white">Dudu</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-amber-200/70">Espetáculo:</span>
-              <span class="font-bold text-amber-300">Kristal ao Vivo em Valongo</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-amber-200/70">Atividades:</span>
-              <span class="text-xs bg-red-950 text-amber-200 px-2 py-0.5 rounded border border-amber-700">Cantar & Dançar com a Kristal</span>
-            </div>
-          </div>
-
-          <div class="mt-4 pt-3 border-t border-dashed border-amber-500/40 flex justify-between items-center text-xs">
-            <span class="text-amber-400 font-mono">TICKET: KRISTAL-VIP-001</span>
-            <span class="text-amber-300 font-semibold group-hover:underline flex items-center gap-1">
-              Ver Passaporte VIP <i class="fa-solid fa-arrow-right"></i>
-            </span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Rodapé Festivo -->
-    <footer class="mt-12 text-center text-xs text-amber-200/60 pb-8">
-      <p class="flex items-center justify-center gap-2 mb-2">
-        <span>Feito com</span>
-        <i class="fa-solid fa-heart text-red-500"></i>
-        <span>para a magia do Natal em Portugal</span>
-      </p>
-      <p>© 2026 Polo Norte Express - Edição Especial Valongo</p>
-    </footer>
-
+  <div class="tab-container">
+    <button class="tab-btn active" onclick="showLetter('dudu')">✉️ Carta do Dudu</button>
+    <button class="tab-btn" onclick="showLetter('kristal')">🕯️ Carta da Kristal</button>
   </div>
 
-  <!-- MODAL DE DETALHES DO BILHETE -->
-  <div id="ticketModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-slate-900 border-2 border-amber-500 rounded-3xl max-w-md w-full p-6 relative shadow-2xl animate-fade-in">
+  <div class="perspective-wrapper">
+    <div class="flipper" id="flipper">
       
-      <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
+      <!-- CARTA DO DUDU -->
+      <div class="letter-card front">
+        <div class="stamp-container">
+          <div class="stamp-img">🎅</div>
+          <div class="postmark">Pólo Norte<br>★ 2024 ★</div>
+        </div>
 
-      <div id="modalContent">
-        <!-- Conteúdo dinâmico injetado via JS -->
+        <h2 class="letter-title">Querido Pai Natal, 🎅✨</h2>
+
+        <div class="letter-body">
+          <p>Espero que estejas bem e que os duendes estejam a trabalhar com muita alegria lá no Pólo Norte! 🎅✨</p>
+
+          <p>Este ano portei-me muito bem, ajudei em casa, brinquei muito e fui um bom menino. Por isso, tenho um pedido muito especial para este Natal. 🎁⭐</p>
+
+          <p>O meu maior sonho é aprender a fazer uma <strong>vela mágica de Natal com a Kristal</strong>! Gostava muito que me trouxesses um bilhete de Flixbus para Valongo e o bilhete para a oficina da Kristal, para eu poder viajar e criar a minha própria vela artesanal com ela. Seria o melhor presente do mundo inteiro! 🚌🕯️✨</p>
+
+          <p>Prometo deixar uns biscoitos e um copo de leite ao pé da árvore de Natal para ti, e uma cenoura para as renas! 🥛🍪🦌</p>
+
+          <p>Um grande abraço e Feliz Natal! 🎄❤️</p>
+
+          <div class="letter-signature">
+            Com carinho,<br>
+            <strong>Dudu ❤️✨</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARTA DA KRISTAL -->
+      <div class="letter-card back">
+        <div class="stamp-container">
+          <div class="stamp-img">🕯️</div>
+          <div class="postmark">Valongo<br>★ VIP ★</div>
+        </div>
+
+        <h2 class="letter-title">Querido Pai Natal, 🎅✨</h2>
+
+        <div class="letter-body">
+          <p>Espero que estejas bem e que os duendes estejam a trabalhar com muita alegria lá no Pólo Norte!</p>
+
+          <p>Este ano tenho um pedido muito especial. O Dudu (o meu fã mais especial e querido) sonha tanto em vir ter comigo para aprendermos a fazer uma <strong>vela artesanal de Natal juntos</strong>. Ele tem sido um menino fantástico: ajudou em casa, brincou muito e tem um coração enorme.</p>
+
+          <p>Por isso, peço-te de todo o coração que lhe tragas um bilhete de Flixbus para Valongo e o bilhete para a minha oficina de velas de Natal, para ele poder viajar e acender esta magia comigo. Seria o melhor presente do mundo inteiro para os dois! 🚌🕯️✨</p>
+
+          <p>Prometo deixar-te uns biscoitos e um copo de leite ao pé da árvore, e uma cenoura para as renas!</p>
+
+          <div class="letter-signature">
+            Um grande abraço e Feliz Natal,<br>
+            Com muito carinho,<br>
+            <strong>Kristal ❤️🕯️</strong>
+          </div>
+
+          <div class="tickets-container">
+            <div class="ticket ticket-flixbus" onclick="openModal('flixbus')">
+              <div class="ticket-info">
+                <h4>🚌 Flixbus - Viagem para Valongo</h4>
+                <p>Passageiro: Dudu | Origem: A definir -> Valongo</p>
+              </div>
+              <span class="ticket-badge">VER BILHETE</span>
+            </div>
+
+            <div class="ticket ticket-candle" onclick="openModal('candle')">
+              <div class="ticket-info">
+                <h4>🕯️ Oficina Mágica de Velas - Kristal</h4>
+                <p>Acesso VIP | Criação de Vela Artesanal</p>
+              </div>
+              <span class="ticket-badge">ACESSO VIP</span>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
   </div>
 
-  <!-- LÓGICA JAVASCRIPT -->
+  <!-- Modal para Detalhes do Bilhete -->
+  <div class="modal" id="ticketModal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Botão de Som -->
+  <button class="audio-btn" onclick="toggleAudio()" title="Ligar/Desligar Música">🎵</button>
+
   <script>
-    // 1. ANIMAÇÃO DE NEVE (Canvas)
-    const canvas = document.getElementById('snowCanvas');
+    // Alternar entre cartas
+    function showLetter(person) {
+      const flipper = document.getElementById('flipper');
+      const buttons = document.querySelectorAll('.tab-btn');
+
+      if (person === 'kristal') {
+        flipper.classList.add('flipped');
+        buttons[0].classList.remove('active');
+        buttons[1].classList.add('active');
+      } else {
+        flipper.classList.remove('flipped');
+        buttons[1].classList.remove('active');
+        buttons[0].classList.add('active');
+      }
+    }
+
+    // Modal de Bilhetes
+    function openModal(type) {
+      const modal = document.getElementById('ticketModal');
+      const body = document.getElementById('modalBody');
+
+      if (type === 'flixbus') {
+        body.innerHTML = `
+          <h2 style="color: #73d700; margin-bottom: 10px;">🚌 FlixBus - Bilhete Mágico</h2>
+          <p><strong>Passageiro:</strong> Dudu</p>
+          <p><strong>Destino:</strong> Valongo (Oficina de Velas)</p>
+          <p><strong>Tipo:</strong> One-way / Ida</p>
+          <p><strong>Data:</strong> Consoante escolha</p>
+          <hr style="margin: 15px 0;">
+          <p style="font-size: 0.85rem; color: #555;">Bilhete válido para uma viagem inesquecível de Natal!</p>
+        `;
+      } else {
+        body.innerHTML = `
+          <h2 style="color: #d4af37; margin-bottom: 10px;">🕯️ Oficina de Velas de Natal</h2>
+          <p><strong>Participante VIP:</strong> Dudu</p>
+          <p><strong>Anfitriã:</strong> Kristal</p>
+          <p><strong>Atividade:</strong> Criação de Vela Mágica de Cera de Abelha</p>
+          <p><strong>Local:</strong> Valongo</p>
+          <hr style="margin: 15px 0;">
+          <p style="font-size: 0.85rem; color: #555;">Inclui kit completo de ceras, pavios aromáticos e brilho natalício!</p>
+        `;
+      }
+
+      modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('ticketModal').style.display = 'none';
+    }
+
+    // Animação de Neve em Canvas
+    const canvas = document.getElementById('snow-canvas');
     const ctx = canvas.getContext('2d');
 
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
 
-    window.addEventListener('resize', () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    });
-
-    const numFlakes = 80;
     const flakes = [];
-
-    for (let i = 0; i < numFlakes; i++) {
+    for (let i = 0; i < 70; i++) {
       flakes.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
         r: Math.random() * 3 + 1,
-        d: Math.random() * 1 + 0.5,
-        opacity: Math.random() * 0.7 + 0.3
+        d: Math.random() * 1
       });
     }
 
     function drawSnow() {
-      ctx.clearRect(0, 0, width, height);
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
       ctx.beginPath();
-      for (let i = 0; i < numFlakes; i++) {
+      for (let i = 0; i < flakes.length; i++) {
         const f = flakes[i];
         ctx.moveTo(f.x, f.y);
         ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2, true);
@@ -480,220 +532,56 @@
     let angle = 0;
     function moveSnow() {
       angle += 0.01;
-      for (let i = 0; i < numFlakes; i++) {
+      for (let i = 0; i < flakes.length; i++) {
         const f = flakes[i];
         f.y += Math.cos(angle + f.d) + 1 + f.r / 2;
-        f.x += Math.sin(angle) * 0.8;
+        f.x += Math.sin(angle) * 2;
 
-        if (f.x > width + 5 || f.x < -5 || f.y > height) {
-          if (i % 3 > 0) {
-            flakes[i] = { x: Math.random() * width, y: -10, r: f.r, d: f.d, opacity: f.opacity };
-          } else {
-            if (Math.sin(angle) > 0) {
-              flakes[i] = { x: -5, y: Math.random() * height, r: f.r, d: f.d, opacity: f.opacity };
-            } else {
-              flakes[i] = { x: width + 5, y: Math.random() * height, r: f.r, d: f.d, opacity: f.opacity };
-            }
-          }
+        if (f.x > canvas.width + 5 || f.x < -5 || f.y > canvas.height) {
+          flakes[i] = { x: Math.random() * canvas.width, y: -10, r: f.r, d: f.d };
         }
       }
     }
 
-    function snowLoop() {
-      drawSnow();
-      requestAnimationFrame(snowLoop);
-    }
-    snowLoop();
+    setInterval(drawSnow, 33);
 
-    // 2. ALTERNADOR DE CARTAS (FLIP ANIMATION)
-    let currentLetter = 'dudu';
-
-    function switchLetter(target) {
-      const cardInner = document.getElementById('cardInner');
-      const tabDudu = document.getElementById('tabDudu');
-      const tabKristal = document.getElementById('tabKristal');
-
-      if (target === 'kristal' && currentLetter !== 'kristal') {
-        cardInner.classList.add('rotate-y-180');
-        currentLetter = 'kristal';
-
-        // Estilos das abas
-        tabKristal.className = "px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all flex items-center gap-2 bg-amber-500 text-slate-950 shadow-md";
-        tabDudu.className = "px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all flex items-center gap-2 text-amber-200 hover:text-white hover:bg-white/10";
-      } else if (target === 'dudu' && currentLetter !== 'dudu') {
-        cardInner.classList.remove('rotate-y-180');
-        currentLetter = 'dudu';
-
-        // Estilos das abas
-        tabDudu.className = "px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all flex items-center gap-2 bg-amber-500 text-slate-950 shadow-md";
-        tabKristal.className = "px-6 py-3 rounded-xl font-bold text-sm md:text-base transition-all flex items-center gap-2 text-amber-200 hover:text-white hover:bg-white/10";
-      }
-    }
-
-    // 3. MÓDULO DE ÁUDIO NATALÍCIO (Web Audio API)
+    // Música Sintetizada Simples (Web Audio API)
     let audioCtx = null;
     let isPlaying = false;
-    let melodyInterval = null;
 
     function toggleAudio() {
-      const musicBtn = document.getElementById('musicBtn');
-      const musicIcon = document.getElementById('musicIcon');
-      const musicText = document.getElementById('musicText');
-
-      if (!isPlaying) {
-        startJingleBells();
-        isPlaying = true;
-        musicIcon.className = "fa-solid fa-pause";
-        musicText.textContent = "Pausar Música";
-        musicBtn.classList.replace("bg-christmasGreen", "bg-amber-600");
-      } else {
-        stopJingleBells();
-        isPlaying = false;
-        musicIcon.className = "fa-solid fa-music";
-        musicText.textContent = "Tocar Música Natalícia";
-        musicBtn.classList.replace("bg-amber-600", "bg-christmasGreen");
-      }
-    }
-
-    function startJingleBells() {
       if (!audioCtx) {
         audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       }
 
-      // Notas simples de Jingle Bells
-      const notes = [
-        { note: 659.25, duration: 250 }, // E5
-        { note: 659.25, duration: 250 }, // E5
-        { note: 659.25, duration: 500 }, // E5
-        { note: 659.25, duration: 250 }, // E5
-        { note: 659.25, duration: 250 }, // E5
-        { note: 659.25, duration: 500 }, // E5
-        { note: 659.25, duration: 250 }, // E5
-        { note: 783.99, duration: 250 }, // G5
-        { note: 523.25, duration: 250 }, // C5
-        { note: 587.33, duration: 250 }, // D5
-        { note: 659.25, duration: 1000 },// E5
-      ];
-
-      let noteIndex = 0;
-
-      function playNextNote() {
-        if (!isPlaying) return;
-
-        const current = notes[noteIndex];
-        playTone(current.note, current.duration / 1000);
-
-        noteIndex = (noteIndex + 1) % notes.length;
-        melodyInterval = setTimeout(playNextNote, current.duration + 50);
+      if (isPlaying) {
+        audioCtx.suspend();
+        isPlaying = false;
+      } else {
+        audioCtx.resume();
+        playJingle();
+        isPlaying = true;
       }
-
-      playNextNote();
     }
 
-    function playTone(freq, duration) {
-      if (!audioCtx) return;
-      try {
+    function playJingle() {
+      const notes = [261.63, 293.66, 329.63, 349.23, 392.00]; // C4, D4, E4, F4, G4
+      let step = 0;
+      
+      setInterval(() => {
+        if (!isPlaying) return;
         const osc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
-
         osc.type = 'triangle';
-        osc.frequency.value = freq;
-
-        gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
-
+        osc.frequency.value = notes[step % notes.length];
+        gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.4);
         osc.connect(gain);
         gain.connect(audioCtx.destination);
-
         osc.start();
-        osc.stop(audioCtx.currentTime + duration);
-      } catch (e) {
-        console.log("Erro de áudio:", e);
-      }
-    }
-
-    function stopJingleBells() {
-      if (melodyInterval) clearTimeout(melodyInterval);
-    }
-
-    // 4. MODAL DE BILHETES
-    function openModal(type) {
-      const modal = document.getElementById('ticketModal');
-      const content = document.getElementById('modalContent');
-
-      if (type === 'flixbus') {
-        content.innerHTML = `
-          <div class="text-center">
-            <div class="inline-block p-3 bg-lime-500/20 text-lime-400 rounded-full mb-3">
-              <i class="fa-solid fa-bus text-3xl"></i>
-            </div>
-            <h4 class="text-2xl font-bold text-white mb-1">Passagem Flixbus Mágica</h4>
-            <p class="text-xs text-lime-400 font-semibold uppercase tracking-wider mb-4">Pólo Norte ➔ Valongo</p>
-
-            <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 text-left space-y-3 mb-6 text-sm">
-              <div class="flex justify-between border-b border-slate-700 pb-2">
-                <span class="text-slate-400">Passageiro Especial:</span>
-                <span class="font-bold text-amber-300">Dudu</span>
-              </div>
-              <div class="flex justify-between border-b border-slate-700 pb-2">
-                <span class="text-slate-400">Destino:</span>
-                <span class="font-bold text-white">Valongo, Portugal</span>
-              </div>
-              <div class="flex justify-between border-b border-slate-700 pb-2">
-                <span class="text-slate-400">Tipo de Lugar:</span>
-                <span class="font-bold text-lime-400">Lugar de Honra VIP</span>
-              </div>
-              <div class="flex justify-between">
-                <span class="text-slate-400">Validade:</span>
-                <span class="text-xs bg-emerald-900 text-emerald-200 px-2 py-0.5 rounded">Viagem Inesquecível de Natal</span>
-              </div>
-            </div>
-
-            <button onclick="closeModal()" class="w-full py-3 bg-lime-500 hover:bg-lime-600 text-slate-950 font-bold rounded-xl shadow-lg transition">
-              <i class="fa-solid fa-check mr-2"></i> Confirmar Viagem do Dudu
-            </button>
-          </div>
-        `;
-      } else if (type === 'kristal') {
-        content.innerHTML = `
-          <div class="text-center">
-            <div class="inline-block p-3 bg-red-500/20 text-amber-400 rounded-full mb-3">
-              <i class="fa-solid fa-microphone-lines text-3xl"></i>
-            </div>
-            <h4 class="text-2xl font-bold text-white mb-1">Passe VIP: Kristal ao Vivo</h4>
-            <p class="text-xs text-amber-400 font-semibold uppercase tracking-wider mb-4">Espetáculo Exclusivo para o Dudu</p>
-
-            <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 text-left space-y-3 mb-6 text-sm">
-              <div class="flex justify-between border-b border-slate-700 pb-2">
-                <span class="text-slate-400">Fã de Honra:</span>
-                <span class="font-bold text-amber-300">Dudu</span>
-              </div>
-              <div class="flex justify-between border-b border-slate-700 pb-2">
-                <span class="text-slate-400">Acesso:</span>
-                <span class="font-bold text-red-400">VIP / Bastidores & Palco</span>
-              </div>
-              <div class="flex justify-between border-b border-slate-700 pb-2">
-                <span class="text-slate-400">Atividades Prometidas:</span>
-                <span class="font-bold text-white">Cantar e Dançar com a Kristal</span>
-              </div>
-              <div class="flex justify-between">
-                <span class="text-slate-400">Estatuto:</span>
-                <span class="text-xs bg-red-900 text-amber-200 px-2 py-0.5 rounded">O Melho Presente do Mundo!</span>
-              </div>
-            </div>
-
-            <button onclick="closeModal()" class="w-full py-3 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold rounded-xl shadow-lg transition">
-              <i class="fa-solid fa-star mr-2"></i> Entrar na Festa com a Kristal!
-            </button>
-          </div>
-        `;
-      }
-
-      modal.classList.remove('hidden');
-    }
-
-    function closeModal() {
-      document.getElementById('ticketModal').classList.add('hidden');
+        osc.stop(audioCtx.currentTime + 0.4);
+        step++;
+      }, 500);
     }
   </script>
 </body>
