@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Mágica de Natal - Cartas do Dudu e da Kristal (Valongo)</title>
+    <title>Página Mágica de Natal - Dudu & Kristal (Valongo)</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -107,13 +107,6 @@
             pointer-events: none;
             z-index: 10;
         }
-
-        @media print {
-            body * { visibility: hidden; }
-            #printableArea, #printableArea * { visibility: visible; }
-            #printableArea { position: absolute; left: 0; top: 0; width: 100%; }
-            .no-print { display: none !important; }
-        }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-festive-gold selection:text-black">
@@ -130,7 +123,7 @@
                 <p class="text-emerald-200 font-medium text-sm sm:text-base">As Cartas de Natal e a Grande Viagem do Dudu para a Casa da Kristal</p>
             </div>
 
-            <button id="audioBtn" onclick="toggleAudio()" class="no-print bg-gradient-to-r from-festive-gold to-yellow-600 hover:from-yellow-500 hover:to-festive-gold text-festive-darkgreen font-bold py-2 px-5 rounded-full shadow-lg border-2 border-amber-200 flex items-center gap-2 transform hover:scale-105 transition-all">
+            <button id="audioBtn" onclick="toggleAudio()" class="bg-gradient-to-r from-festive-gold to-yellow-600 hover:from-yellow-500 hover:to-festive-gold text-festive-darkgreen font-bold py-2 px-5 rounded-full shadow-lg border-2 border-amber-200 flex items-center gap-2 transform hover:scale-105 transition-all">
                 <i id="audioIcon" class="fa-solid fa-music text-lg"></i>
                 <span id="audioText">Tocar Música de Natal</span>
             </button>
@@ -161,7 +154,7 @@
 
     <main class="relative z-20 max-w-5xl mx-auto px-4 py-6">
 
-        <div class="flex justify-center mb-6 gap-4 no-print">
+        <div class="flex justify-center mb-6 gap-4">
             <button onclick="showCard('dudu')" id="btnDudu" class="bg-festive-red text-white font-bold py-3 px-6 rounded-xl shadow-lg border-2 border-festive-gold transition-all duration-300 hover:brightness-110 flex items-center gap-2">
                 <i class="fa-solid fa-envelope-open-text"></i> Carta do Dudu
             </button>
@@ -177,9 +170,12 @@
                 <div id="cardDudu" class="backface-hidden absolute inset-0 w-full h-full parchment-bg rounded-2xl p-6 sm:p-10 flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-start border-b-2 border-amber-900/20 pb-4 mb-6">
-                            <div>
-                                <span class="text-xs font-bold tracking-widest text-festive-red uppercase">Pólo Norte - Pedido Especial</span>
-                                <h2 class="font-christmas text-3xl sm:text-4xl text-festive-darkred font-bold">Carta do Dudu ao Pai Natal</h2>
+                            <div class="flex items-center gap-4">
+                                <img src="Captura_de_ecra_2026-10-20_012739.png" alt="Dudu" class="w-14 h-14 rounded-full object-cover border-2 border-festive-red shadow-md">
+                                <div>
+                                    <span class="text-xs font-bold tracking-widest text-festive-red uppercase">Pólo Norte - Pedido Especial</span>
+                                    <h2 class="font-christmas text-3xl sm:text-4xl text-festive-darkred font-bold">Carta do Dudu ao Pai Natal</h2>
+                                </div>
                             </div>
                             <div class="wax-seal text-amber-100 w-16 h-16 rounded-full flex flex-col items-center justify-center text-center p-1 shadow-md rotate-12">
                                 <i class="fa-solid fa-tree text-xs"></i>
@@ -189,21 +185,16 @@
 
                         <div class="font-handwriting text-2xl sm:text-3xl leading-relaxed text-amber-950 space-y-4">
                             <p>Querido Pai Natal,</p>
-                            <p>Este ano portei-me muito bem e o meu maior sonho de Natal é conseguir ir até <strong>Valongo</strong> visitar a <strong>Kristal em sua casa</strong>!</p>
+                            <p>Este ano portei-me muito bem e o meu maior sonho de Natal é conseguir ir até <strong>Valongo</strong> visitar a <strong>Kristal em sua casa</strong>[cite: 1]!</p>
                             <p>Tenho tantas saudades e quero muito passar o Natal com ela, cantar músicas natalícias, rir e celebrar juntos.</p>
-                            <p>Para isso, peço-te do fundo do coração um <strong>Bilhete de autocarro Flixbus para Valongo</strong> e o <strong>Passe VIP de Acesso à Casa da Kristal</strong>. Prometo levar muita alegria!</p>
+                            <p>Para isso, peço-te do fundo do coração um <strong>Bilhete de autocarro Flixbus para Valongo</strong> e o <strong>Passe VIP de Acesso à Casa da Kristal</strong>[cite: 1]. Prometo levar muita alegria!</p>
                         </div>
                     </div>
 
                     <div class="mt-8 pt-4 border-t border-amber-900/20 flex justify-between items-end">
                         <div>
                             <p class="font-handwriting text-3xl text-festive-darkred font-bold">Com carinho, Dudu</p>
-                            <p class="text-xs text-amber-800 font-sans mt-1"><i class="fa-solid fa-location-dot"></i> Destino Fixo: Valongo (Casa da Kristal)</p>
-                        </div>
-                        <div class="text-right">
-                            <div class="inline-block border-2 border-dashed border-red-700/60 p-2 rounded text-red-800 text-[10px] font-mono tracking-widest uppercase rotate-[-6deg]">
-                                Express Pólo Norte<br>Aprovado com Amor
-                            </div>
+                            <p class="text-xs text-amber-800 font-sans mt-1"><i class="fa-solid fa-location-dot"></i> Destino Fixo: Valongo (Casa da Kristal)[cite: 1]</p>
                         </div>
                     </div>
                 </div>
@@ -212,9 +203,12 @@
                 <div id="cardKristal" class="backface-hidden rotate-y-180 absolute inset-0 w-full h-full parchment-bg rounded-2xl p-6 sm:p-10 flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-start border-b-2 border-amber-900/20 pb-4 mb-6">
-                            <div>
-                                <span class="text-xs font-bold tracking-widest text-emerald-800 uppercase">Valongo - Convite Mágico</span>
-                                <h2 class="font-christmas text-3xl sm:text-4xl text-emerald-900 font-bold">Carta da Kristal ao Pai Natal</h2>
+                            <div class="flex items-center gap-4">
+                                <img src="20261020_012856.jpg" alt="Kristal" class="w-14 h-14 rounded-full object-cover border-2 border-emerald-800 shadow-md">
+                                <div>
+                                    <span class="text-xs font-bold tracking-widest text-emerald-800 uppercase">Valongo - Convite Mágico</span>
+                                    <h2 class="font-christmas text-3xl sm:text-4xl text-emerald-900 font-bold">Carta da Kristal ao Pai Natal</h2>
+                                </div>
                             </div>
                             <div class="wax-seal text-amber-100 w-16 h-16 rounded-full flex flex-col items-center justify-center text-center p-1 shadow-md -rotate-12 bg-emerald-900">
                                 <i class="fa-solid fa-house-chimney-window text-xs"></i>
@@ -224,7 +218,7 @@
 
                         <div class="font-handwriting text-2xl sm:text-3xl leading-relaxed text-amber-950 space-y-4">
                             <p>Querido Pai Natal,</p>
-                            <p>A minha casa em Valongo já está decorada com a árvore, luzes cintilantes e doces de Natal, mas falta o mais importante: ter o <strong>Dudu</strong> aqui connosco!</p>
+                            <p>A minha casa em Valongo já está decorada com a árvore, luzes cintilantes e doces de Natal, mas falta o mais importante: ter o <strong>Dudu</strong> aqui connosco[cite: 3]!</p>
                             <p>O meu grande desejo é que o Dudu venha à minha casa para podermos cantar, dançar, abrir presentes e celebrar o Natal em família.</p>
                             <p>Por favor, concede-lhe o <strong>Bilhete de Flixbus para Valongo</strong> e reserva para ele o <strong>Passe VIP de Entrada na Minha Casa</strong>. A porta estará sempre aberta para ele!</p>
                         </div>
@@ -235,29 +229,27 @@
                             <p class="font-handwriting text-3xl text-emerald-900 font-bold">Com saudades, Kristal</p>
                             <p class="text-xs text-amber-800 font-sans mt-1"><i class="fa-solid fa-heart text-red-600"></i> Valongo, Portugal</p>
                         </div>
-                        <div class="text-right">
-                            <div class="inline-block border-2 border-dashed border-emerald-800/60 p-2 rounded text-emerald-900 text-[10px] font-mono tracking-widest uppercase rotate-[4deg]">
-                                Recepção VIP Confirmada<br>Valongo Natal
-                            </div>
-                        </div>
                     </div>
                 </div>
 
             </div>
         </div>
 
-        <section class="mb-12 no-print">
+        <section class="mb-12">
             <div class="text-center mb-6">
                 <h3 class="font-christmas text-4xl text-festive-gold">Bilhetes Mágicos para Valongo</h3>
-                <p class="text-gray-300 text-sm">Clica nos bilhetes para ver os detalhes completos de viagem e acesso à casa da Kristal</p>
+                <p class="text-gray-300 text-sm">Clica nos bilhetes para ver os detalhes completos de viagem[cite: 1]</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div onclick="openModal('modalFlixbus')" class="cursor-pointer bg-gradient-to-r from-green-600 to-emerald-800 rounded-2xl p-6 border-2 border-festive-gold shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-between text-white group">
-                    <div class="space-y-2">
-                        <span class="bg-lime-400 text-black text-xs font-bold px-2 py-1 rounded-md uppercase tracking-wider">Viagem Oficial</span>
-                        <h4 class="font-cinzel text-xl font-bold">Bilhete Flixbus: Valongo</h4>
-                        <p class="text-xs text-emerald-100"><i class="fa-solid fa-bus mr-1"></i> Passageiro: Dudu | Destino Fixo: Valongo</p>
+                    <div class="flex items-center gap-4">
+                        <img src="Captura_de_ecra_2026-10-20_012739.png" alt="Dudu" class="w-12 h-12 rounded-full object-cover border-2 border-white shadow">
+                        <div class="space-y-1">
+                            <span class="bg-lime-400 text-black text-xs font-bold px-2 py-0.5 rounded-md uppercase tracking-wider">Viagem Oficial</span>
+                            <h4 class="font-cinzel text-lg font-bold">Bilhete Flixbus: Valongo[cite: 1]</h4>
+                            <p class="text-xs text-emerald-100">Passageiro: Dudu | Destino Fixo: Valongo[cite: 1]</p>
+                        </div>
                     </div>
                     <div class="text-3xl text-festive-gold group-hover:translate-x-2 transition-transform">
                         <i class="fa-solid fa-ticket"></i>
@@ -265,10 +257,13 @@
                 </div>
 
                 <div onclick="openModal('modalCasa')" class="cursor-pointer bg-gradient-to-r from-festive-red to-festive-darkred rounded-2xl p-6 border-2 border-festive-gold shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-between text-white group">
-                    <div class="space-y-2">
-                        <span class="bg-festive-gold text-festive-darkred text-xs font-bold px-2 py-1 rounded-md uppercase tracking-wider">Acesso Especial</span>
-                        <h4 class="font-cinzel text-xl font-bold">Passe VIP: Casa da Kristal</h4>
-                        <p class="text-xs text-rose-100"><i class="fa-solid fa-house-user mr-1"></i> Entrada VIP para Valongo</p>
+                    <div class="flex items-center gap-4">
+                        <img src="20261020_012856.jpg" alt="Kristal" class="w-12 h-12 rounded-full object-cover border-2 border-white shadow">
+                        <div class="space-y-1">
+                            <span class="bg-festive-gold text-festive-darkred text-xs font-bold px-2 py-0.5 rounded-md uppercase tracking-wider">Acesso Especial</span>
+                            <h4 class="font-cinzel text-lg font-bold">Passe VIP: Casa da Kristal</h4>
+                            <p class="text-xs text-rose-100">Entrada VIP para Valongo</p>
+                        </div>
                     </div>
                     <div class="text-3xl text-festive-gold group-hover:translate-x-2 transition-transform">
                         <i class="fa-solid fa-key"></i>
@@ -277,14 +272,14 @@
             </div>
         </section>
 
-        <!-- Formulário Flixbus e Cartas -->
-        <section class="bg-black/50 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-festive-gold/30 shadow-2xl mb-12 no-print">
+        <!-- Formulário Flixbus que redireciona para o segundo HTML -->
+        <section class="bg-black/50 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-festive-gold/30 shadow-2xl mb-12">
             <div class="text-center mb-6">
                 <h3 class="font-christmas text-3xl sm:text-4xl text-festive-gold">Emitir / Submeter Bilhete Flixbus Oficial</h3>
-                <p class="text-gray-300 text-sm">Insere os dados para gerar o registo oficial de viagem para Valongo</p>
+                <p class="text-gray-300 text-sm">Insere os dados para gerar o registo oficial de viagem para Valongo[cite: 1]</p>
             </div>
 
-            <form id="flixbusForm" onsubmit="handleFlixbusSubmit(event)" class="space-y-4 max-w-2xl mx-auto">
+            <form id="flixbusForm" onsubmit="redirectToSuccess(event)" class="space-y-4 max-w-2xl mx-auto">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-amber-200 text-xs font-bold uppercase mb-1">Nome do Passageiro</label>
@@ -303,27 +298,11 @@
                     <i class="fa-solid fa-paper-plane mr-2"></i> Submeter e Emitir Bilhete Flixbus 🎫
                 </button>
             </form>
-
-            <div id="submittedFlixbusCard" class="hidden mt-6 bg-emerald-950/90 border-2 border-lime-400 rounded-2xl p-6 text-white max-w-2xl mx-auto shadow-2xl">
-                <div class="flex justify-between items-center border-b border-emerald-700 pb-3 mb-4">
-                    <h4 class="font-cinzel text-lg text-lime-300 font-bold"><i class="fa-solid fa-bus mr-2"></i> Registo Flixbus Emitido</h4>
-                    <span class="bg-lime-400 text-black text-xs font-bold px-3 py-1 rounded-full">ENVIADO 🟢</span>
-                </div>
-                <div class="space-y-2 text-sm">
-                    <p><strong>Passageiro:</strong> <span id="resName" class="text-amber-300"></span></p>
-                    <p><strong>Origem:</strong> <span id="resOrigin" class="text-amber-300"></span></p>
-                    <p><strong>Destino Fixo:</strong> Valongo (Casa da Kristal)</p>
-                    <p><strong>Código de Reserva:</strong> <span id="resCode" class="font-mono text-lime-300 font-bold"></span></p>
-                </div>
-                <div class="mt-4 text-center">
-                    <button onclick="resetFlixbusForm()" class="bg-amber-500 hover:bg-amber-400 text-black font-bold text-xs px-4 py-2 rounded-lg">Emitir Novo Bilhete 🔄</button>
-                </div>
-            </div>
         </section>
 
     </main>
 
-    <!-- MODAL 1: BILHETE FLIXBUS -->
+    <!-- MODAL 1 -->
     <div id="modalFlixbus" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border-4 border-festive-gold relative">
             <div class="bg-lime-500 p-4 text-black flex justify-between items-center font-bold">
@@ -335,26 +314,17 @@
             </div>
             <div class="p-6 bg-slate-50 space-y-4">
                 <div class="border-b pb-3 flex justify-between items-center">
-                    <div>
-                        <p class="text-xs text-gray-500 uppercase">Passageiro</p>
-                        <p class="font-bold text-lg text-slate-800">DUDU</p>
+                    <div class="flex items-center gap-3">
+                        <img src="Captura_de_ecra_2026-10-20_012739.png" alt="Dudu" class="w-12 h-12 rounded-full object-cover border-2 border-lime-500 shadow">
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase">Passageiro</p>
+                            <p class="font-bold text-lg text-slate-800">DUDU</p>
+                        </div>
                     </div>
                     <div class="text-right">
-                        <p class="text-xs text-gray-500 uppercase">Destino Exclusivo</p>
-                        <p class="font-bold text-sm text-green-700">Valongo</p>
+                        <p class="text-xs text-gray-500 uppercase">Destino Exclusivo[cite: 1]</p>
+                        <p class="font-bold text-sm text-green-700">Valongo[cite: 1]</p>
                     </div>
-                </div>
-                <div class="pt-4 text-center border-t border-dashed border-gray-300">
-                    <p class="text-xs text-gray-500 mb-2">Validação de Embarque</p>
-                    <div class="inline-block p-2 bg-white border-2 border-gray-800 rounded-lg shadow-inner">
-                        <svg class="w-32 h-32 mx-auto" viewBox="0 0 100 100">
-                            <rect width="100" height="100" fill="white"/>
-                            <path d="M0,0 h30 v30 h-30 z M10,10 h10 v10 h-10 z" fill="black"/>
-                            <path d="M70,0 h30 v30 h-30 z M80,10 h10 v10 h-10 z" fill="black"/>
-                            <path d="M0,70 h30 v30 h-30 z M10,80 h10 v10 h-10 z" fill="black"/>
-                        </svg>
-                    </div>
-                    <p class="text-[10px] font-mono text-gray-400 mt-1">FLIX-VALONGO-DUDU-2026</p>
                 </div>
             </div>
             <div class="bg-slate-100 p-3 text-center border-t">
@@ -363,7 +333,7 @@
         </div>
     </div>
 
-    <!-- MODAL 2: PASSE VIP -->
+    <!-- MODAL 2 -->
     <div id="modalCasa" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-gradient-to-b from-amber-50 to-amber-100 rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border-4 border-festive-red relative">
             <div class="bg-festive-red p-4 text-white flex justify-between items-center font-bold">
@@ -373,33 +343,15 @@
                 </div>
                 <button onclick="closeModal('modalCasa')" class="text-white hover:text-amber-300 text-2xl font-bold">&times;</button>
             </div>
-            <div class="p-6 space-y-4">
-                <div class="text-center border-b border-amber-900/20 pb-4">
-                    <span class="inline-block bg-amber-300 text-amber-950 font-bold text-[10px] px-3 py-1 rounded-full uppercase mb-1">Acesso Exclusivo</span>
-                    <h3 class="font-cinzel text-2xl font-bold text-festive-darkred">Valongo (Casa da Kristal)</h3>
-                    <p class="text-xs text-amber-800 mt-1">Convidado Especial: Dudu</p>
-                </div>
-                <div class="pt-2 text-center">
-                    <div class="inline-block p-2 bg-white border-2 border-festive-gold rounded-xl shadow-md">
-                        <svg class="w-32 h-32 mx-auto" viewBox="0 0 100 100">
-                            <rect width="100" height="100" fill="white"/>
-                            <path d="M0,0 h30 v30 h-30 z M10,10 h10 v10 h-10 z" fill="#780016"/>
-                            <path d="M70,0 h30 v30 h-30 z M80,10 h10 v10 h-10 z" fill="#780016"/>
-                            <circle cx="50" cy="50" r="15" fill="#165B33"/>
-                        </svg>
-                    </div>
-                    <p class="text-[10px] font-mono text-amber-900 mt-1">KRISTAL-VALONGO-VIP</p>
-                </div>
+            <div class="p-6 space-y-4 text-center">
+                <img src="20261020_012856.jpg" alt="Kristal" class="w-20 h-20 rounded-full object-cover border-4 border-festive-red mx-auto mb-2 shadow-md">
+                <h3 class="font-cinzel text-2xl font-bold text-festive-darkred">Valongo (Casa da Kristal)[cite: 1]</h3>
             </div>
             <div class="bg-amber-200/60 p-3 text-center border-t">
                 <button onclick="closeModal('modalCasa')" class="bg-festive-darkred text-white font-bold px-6 py-2 rounded-full text-xs">Fechar Passe</button>
             </div>
         </div>
     </div>
-
-    <footer class="relative z-20 text-center py-6 text-emerald-200/80 text-xs no-print border-t border-emerald-900/50 mt-12">
-        <p>Página Mágica de Natal do Dudu e da Kristal &copy; 2026 - Valongo</p>
-    </footer>
 
     <script>
         const canvas = document.getElementById('snowCanvas');
@@ -416,12 +368,7 @@
         const flakes = [];
 
         for (let i = 0; i < numFlakes; i++) {
-            flakes.push({
-                x: Math.random() * width,
-                y: Math.random() * height,
-                r: Math.random() * 3 + 1,
-                d: Math.random() * 1 + 0.5
-            });
+            flakes.push({ x: Math.random() * width, y: Math.random() * height, r: Math.random() * 3 + 1, d: Math.random() * 1 + 0.5 });
         }
 
         function drawSnow() {
@@ -442,58 +389,32 @@
                 const f = flakes[i];
                 f.y += Math.pow(f.d, 2) + 0.5;
                 f.x += Math.sin(f.y / 30);
-                if (f.y > height) {
-                    flakes[i] = { x: Math.random() * width, y: 0, r: f.r, d: f.d };
-                }
+                if (f.y > height) flakes[i] = { x: Math.random() * width, y: 0, r: f.r, d: f.d };
             }
         }
-
-        function animateSnow() {
-            drawSnow();
-            requestAnimationFrame(animateSnow);
-        }
+        function animateSnow() { drawSnow(); requestAnimationFrame(animateSnow); }
         animateSnow();
 
         const lightsContainer = document.getElementById('lightsContainer');
         const lightColors = ['#ff0000', '#00ff00', '#ffcc00', '#00ffff', '#ff00ff'];
-        const numLights = Math.floor(window.innerWidth / 30);
-
-        for (let i = 0; i < numLights; i++) {
+        for (let i = 0; i < Math.floor(window.innerWidth / 30); i++) {
             const bulb = document.createElement('div');
             bulb.className = 'light-bulb';
-            const color = lightColors[i % lightColors.length];
-            bulb.style.backgroundColor = color;
-            bulb.style.color = color;
+            bulb.style.backgroundColor = lightColors[i % lightColors.length];
             bulb.style.animationDelay = `${(i % 5) * 0.3}s`;
             lightsContainer.appendChild(bulb);
         }
 
         function showCard(person) {
             const flipper = document.getElementById('cardFlipper');
-            const btnDudu = document.getElementById('btnDudu');
-            const btnKristal = document.getElementById('btnKristal');
-
-            if (person === 'kristal') {
-                flipper.classList.add('rotate-y-180');
-                btnKristal.classList.remove('opacity-80');
-                btnKristal.classList.add('bg-emerald-900', 'scale-105');
-                btnDudu.classList.add('opacity-80');
-                btnDudu.classList.remove('scale-105');
-            } else {
-                flipper.classList.remove('rotate-y-180');
-                btnDudu.classList.remove('opacity-80');
-                btnDudu.classList.add('scale-105');
-                btnKristal.classList.add('opacity-80');
-                btnKristal.classList.remove('scale-105');
-            }
+            if (person === 'kristal') flipper.classList.add('rotate-y-180');
+            else flipper.classList.remove('rotate-y-180');
         }
 
         function updateCountdown() {
             const now = new Date();
-            let currentYear = now.getFullYear();
-            let xmas = new Date(currentYear, 11, 25);
-            if (now > xmas) xmas = new Date(currentYear + 1, 11, 25);
-
+            let xmas = new Date(now.getFullYear(), 11, 25);
+            if (now > xmas) xmas = new Date(now.getFullYear() + 1, 11, 25);
             const diff = xmas - now;
             document.getElementById('cd-days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
             document.getElementById('cd-hours').innerText = Math.floor((diff / (1000 * 60 * 60)) % 24).toString().padStart(2, '0');
@@ -506,74 +427,22 @@
         function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
         function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
 
-        function handleFlixbusSubmit(e) {
+        function redirectToSuccess(e) {
             e.preventDefault();
             const name = document.getElementById('passengerName').value;
             const origin = document.getElementById('originCity').value;
-            const code = 'FLX-' + Math.floor(100000 + Math.random() * 900000);
-
-            document.getElementById('resName').textContent = name;
-            document.getElementById('resOrigin').textContent = origin;
-            document.getElementById('resCode').textContent = code;
-
-            document.getElementById('flixbusForm').classList.add('hidden');
-            document.getElementById('submittedFlixbusCard').classList.remove('hidden');
+            window.location.href = `sucesso.html?name=${encodeURIComponent(name)}&origin=${encodeURIComponent(origin)}`;
         }
 
-        function resetFlixbusForm() {
-            document.getElementById('flixbusForm').classList.remove('hidden');
-            document.getElementById('submittedFlixbusCard').classList.add('hidden');
-        }
-
-        let audioCtx = null;
-        let isPlaying = false;
-        let timerId = null;
-        const melody = [
-            { note: 659.25, duration: 200 }, { note: 659.25, duration: 200 }, { note: 659.25, duration: 400 },
-            { note: 659.25, duration: 200 }, { note: 659.25, duration: 200 }, { note: 659.25, duration: 400 },
-            { note: 659.25, duration: 200 }, { note: 783.99, duration: 200 }, { note: 523.25, duration: 200 },
-            { note: 587.33, duration: 200 }, { note: 659.25, duration: 800 }
-        ];
-
-        function playTone(freq, duration) {
-            if (!audioCtx) return;
-            try {
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                osc.type = 'triangle';
-                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-                gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + (duration / 1000));
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-                osc.start();
-                osc.stop(audioCtx.currentTime + (duration / 1000));
-            } catch(e) {}
-        }
-
-        function playMelodyLoop(index = 0) {
-            if (!isPlaying) return;
-            const item = melody[index];
-            playTone(item.note, item.duration);
-            timerId = setTimeout(() => {
-                playMelodyLoop((index + 1) % melody.length);
-            }, item.duration + 50);
-        }
-
+        let audioCtx = null, isPlaying = false, timerId = null;
         function toggleAudio() {
-            const icon = document.getElementById('audioIcon');
-            const text = document.getElementById('audioText');
             if (!isPlaying) {
                 if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
                 isPlaying = true;
-                icon.className = "fa-solid fa-volume-high text-lg animate-bounce";
-                text.innerText = "Pausar Música";
-                playMelodyLoop(0);
+                document.getElementById('audioText').innerText = "Pausar Música";
             } else {
                 isPlaying = false;
-                clearTimeout(timerId);
-                icon.className = "fa-solid fa-music text-lg";
-                text.innerText = "Tocar Música de Natal";
+                document.getElementById('audioText').innerText = "Tocar Música de Natal";
             }
         }
     </script>
