@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viagem Confirmada - Dudu & Kristal Juntos em Valongo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Mountains+of+Christmas:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #0b1a0e; color: #f5e6cc; font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+
+    <div class="max-w-2xl w-full bg-black/60 backdrop-blur-md border-2 border-amber-400 rounded-3xl p-8 text-center shadow-2xl relative">
+        <span class="bg-lime-400 text-black font-extrabold text-xs px-4 py-1.5 rounded-full uppercase tracking-wider">Reserva Validada 🟢</span>
+        
+        <h1 class="font-christmas text-4xl sm:text-5xl text-amber-300 mt-4 mb-2">Reunião Mágica em Valongo! 🎄</h1>
+        <p class="text-gray-300 text-sm mb-8">O bilhete foi emitido com sucesso. O Dudu e a Kristal vão celebrar juntos!</p>
+
+        <!-- FOTOS DE AMBOS JUNTOS -->
+        <div class="flex items-center justify-center gap-6 my-6">
+            <div class="relative">
+                <img src="Captura_de_ecra_2026-10-20_012739.png" alt="Dudu" class="w-28 h-28 sm:w-36 sm:h-36 rounded-full object-cover border-4 border-lime-400 shadow-xl">
+                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-black text-lime-400 text-xs font-bold px-2 py-0.5 rounded">Dudu</span>
+            </div>
+
+            <div class="text-amber-300 text-3xl animate-pulse">
+                <i class="fa-solid fa-heart"></i>
+            </div>
+
+            <div class="relative">
+                <img src="20261020_012856.jpg" alt="Kristal" class="w-28 h-28 sm:w-36 sm:h-36 rounded-full object-cover border-4 border-festive-red shadow-xl">
+                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-black text-red-400 text-xs font-bold px-2 py-0.5 rounded">Kristal</span>
+            </div>
+        </div>
+
+        <!-- DETALHES DA RESERVA -->
+        <div class="bg-emerald-950/80 border border-emerald-500/50 rounded-2xl p-6 text-left space-y-3 my-6">
+            <p><strong>Passageiro:</strong> <span id="displayName" class="text-amber-300 font-bold">Dudu</span></p>
+            <p><strong>Origem:</strong> <span id="displayOrigin" class="text-amber-300 font-bold">Lisboa</span></p>
+            <p><strong>Destino Fixo:</strong> Valongo (Casa da Kristal)[cite: 1]</p>
+            <p><strong>Código de Reserva:</strong> <span id="displayCode" class="font-mono text-lime-300 font-bold">FLX-948210</span></p>
+        </div>
+
+        <div class="flex justify-center gap-4">
+            <a href="index.html" class="bg-amber-500 hover:bg-amber-400 text-black font-bold py-3 px-6 rounded-xl text-sm transition-all shadow-lg">
+                <i class="fa-solid fa-arrow-left mr-2"></i> Voltar ao Início
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get('name');
+        const origin = params.get('origin');
+
+        if (name) document.getElementById('displayName').textContent = name;
+        if (origin) document.getElementById('displayOrigin').textContent = origin;
+        document.getElementById('displayCode').textContent = 'FLX-' + Math.floor(100000 + Math.random() * 900000);
+    </script>
+</body>
+</html>
